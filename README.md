@@ -49,7 +49,7 @@ cd networked-aframe
 touch Dockerfile
 ```
 Add this into *Dockerfile*:
-```docker
+```Docker
 FROM node:8
 COPY . .
 RUN npm install 
