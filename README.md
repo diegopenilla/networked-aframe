@@ -39,6 +39,34 @@ Features
 * Cross-platform. Works on all modern Desktop and Mobile browsers. Oculus Rift, HTC Vive and Google Cardboard + Daydream support.
 * Firebase WebRTC signalling support
 
+Easy Start with Docker
+---------------
+
+Clone the repository and add a *Dockerfile*
+```bash
+git clone git@github.com:networked-aframe/networked-aframe.git
+cd networked-aframe
+touch Dockerfile
+```
+Add this into *Dockerfile*:
+```docker
+FROM node:8
+COPY . .
+RUN npm install 
+RUN npm run easyrtc-install 
+EXPOSE 8080
+ENTRYPOINT ["npm"]
+CMD ["run", "dev"]
+```
+Build the image
+```bash
+docker build -t networked-aframe .
+```
+Run the image in a container
+```bash
+docker run -it -p 8080:8080 networked-aframe
+```
+Go to `0.0.0.0:8080`.
 
 Getting Started
 ---------------
